@@ -1,193 +1,239 @@
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8" />
-<meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>
-    Gridea
-</title>
-<link rel="shortcut icon" href="https://w-zx.github.io/favicon.ico?v=1577251495712">
-<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
-<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<title>An Odyssey</title>
+<meta name="description" content="愛よりも昔、孤悲の物語。" />
+<link rel="shortcut icon" href="https://w-zx.github.io/favicon.ico?v=1577256050412">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://w-zx.github.io/styles/main.css">
-<!-- js -->
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://w-zx.github.io/media/js/jquery.sticky-sidebar.min.js"></script>
+
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
-</head>
 
-<body>
+  </head>
+  <body>
     <div class="main">
-        <div class="header">
-    <div class="nav">
-        <div class="logo">
-            <a href="https://w-zx.github.io">
-                <img class="avatar" src="https://w-zx.github.io/images/avatar.png?v=1577251495712" alt="">
-            </a>
-            <div class="site-title">
-                <h1>
-                    Gridea
-                </h1>
-            </div>
-        </div>
-        <span class="menu-btn fa fa-align-justify"></span>
-        <div class="menu-container">
-            <ul>
-                
-                    
-                            <li>
-                                <a href="/" class="menu">
-                                    首页
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/archives" class="menu">
-                                    归档
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/tags" class="menu">
-                                    标签
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/post/about" class="menu">
-                                    关于
-                                </a>
-                            </li>
-                            
-                                
-            </ul>
-        </div>
-    </div>
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://w-zx.github.io">
+  <img class="avatar" src="https://w-zx.github.io/images/avatar.png?v=1577256050412" alt="">
+  </a>
+  <h1 class="site-title">
+    An Odyssey
+  </h1>
+  <p class="site-description">
+    愛よりも昔、孤悲の物語。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
 </div>
 
-<script>
-    $(document).ready(function() {
-        $(".menu-btn").click(function() {
-            $(".menu-container").slideToggle();
-        });
-        $(window).resize(function() {
-
-            if (window.matchMedia('(min-width: 960px)').matches) {
-                $(".menu-container").css('display', 'block')
-            } else {
-                $(".menu-container").css('display', 'none')
-            }
-
-        });
-    });
-</script>
-
-            <div id="main-content" class="post-container main-container">
-                <div id="content" class="main-container-left">
-                    
-        
-            <article class="post i-card">
-                <h2 class="post-title">
-                    <a href="https://w-zx.github.io/post/hello-gridea">
-                        Hello Gridea
-                    </a>
-                </h2>
-                <div class="post-info">
-                    <time class="post-time">2018-12-12</time>
-                    
-                        <a href="https://w-zx.github.io/tag/AsIj4tBX8" class="post-tag i-tag
-                            i-tag-error">
-            #Gridea
-        </a>
-                        
-                </div>
-                <div class="post-article">
-                    
-                        <a href="https://w-zx.github.io/post/hello-gridea" class="post-feature-image" style="background-image:url(https://w-zx.github.io/post-images/hello-gridea.png) ">
-                        </a>
-                        
-                            <div class="post-content">
-                                
-                                    <div class="post-content-abstract">
-                                        <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-
-                                    </div>
-                                    
-                                            <a class="btn btn-text" href="https://w-zx.github.io/post/hello-gridea">Read More ~</a>
-                            </div>
-                </div>
-            </article>
-            
-                <!-- 翻页 -->
-                
-                </div>
-                <!--  -->
-                <div class="main-container-middle"></div>
-                <!--  -->
-                <div id="sidebar" class="main-container-right">
-
-                    <!-- 个人信息 -->
-                    
-    <div class="id_card i-card">
-        <div class="id_card-avatar" style="background-image: url(https://w-zx.github.io/images/avatar.png?v=1577251495712)">
-        </div>
-        <h1 class="id_card-title">
-            Gridea
-        </h1>
-        <h2 class="id_card-description">
-            温故而知新
-        </h2>
-        <!--  -->
-        <div class="id_card-sns">
-            <!-- github -->
-            
-                    <!-- twitter -->
-                    
-                            <!-- weibo -->
-                            
-                                    <!-- facebook -->
-                                    
-
-        </div>
-    </div>
     
+        <div class="post-container">
+  
+    <article class="post">
+      <a href="https://w-zx.github.io/post/draw-maze-with-canvas">
+        <h2 class="post-title">Canvas绘制迷宫</h2>
+      </a>
+      <div class="post-info">
+        <span>
+          2017-01-04
+        </span>
+        <span>
+          5 min read
+        </span>
+        
+          <a href="https://w-zx.github.io/tag/hXS3FZtDB" class="post-tag">
+            # JavaScript
+          </a>
+        
+      </div>
+      
+      <div class="post-abstract">
+        <p>在生成迷宫的诸多方法里，有一种思路是假设迷宫初始状态是由长×宽个独立单元格构成的，每个单元格的东西南北四个方向都有可以挖掉的墙。生成迷宫的过程就是从起点开始，不断挖掉两个单元格之间的墙壁，并随机选择前进方向直到遍历全部单元格，这样就能保证起点和另外任何一个单元格都有通路存在，迷宫也就生成好了。</p>
 
-                        <!-- 公告栏 -->
-                        
+      </div>
+    </article>
+  
+    <article class="post">
+      <a href="https://w-zx.github.io/post/hello-dolly">
+        <h2 class="post-title">WordPress 插件 Hello Dolly 前台版</h2>
+      </a>
+      <div class="post-info">
+        <span>
+          2014-12-09
+        </span>
+        <span>
+          1 min read
+        </span>
+        
+      </div>
+      
+      <div class="post-abstract">
+        <p>WordPress 自带的 Hello Dolly 插件是 WordPress 的第一个插件，它的介绍是这样的：</p>
+<blockquote>
+<p>This is not just a plugin, it symbolizes the hope and enthusiasm of an entire generation summed up in two words sung most famously by Louis Armstrong.</p>
+</blockquote>
 
-                </div>
-            </div>
+      </div>
+    </article>
+  
+    <article class="post">
+      <a href="https://w-zx.github.io/post/oppenheimer">
+        <h2 class="post-title">奥本海默</h2>
+      </a>
+      <div class="post-info">
+        <span>
+          2014-01-24
+        </span>
+        <span>
+          1 min read
+        </span>
+        
+          <a href="https://w-zx.github.io/tag/riSuBZE0r" class="post-tag">
+            # 杂谈
+          </a>
+        
+      </div>
+      
+        <a href="https://w-zx.github.io/post/oppenheimer" class="post-feature-image" style="background-image: url('https://i.loli.net/2019/12/25/iH1aQnYjRw6LmrP.jpg')">
+        </a>
+      
+      <div class="post-abstract">
+        <blockquote>
+<p>《摩珂婆罗多经》中的《福者之歌》：「漫天奇光异彩，犹如圣灵逞威，只有千只太阳，始能与它争辉」</p>
+</blockquote>
 
+      </div>
+    </article>
+  
+    <article class="post">
+      <a href="https://w-zx.github.io/post/the-sentinel">
+        <h2 class="post-title">哨兵</h2>
+      </a>
+      <div class="post-info">
+        <span>
+          2014-01-24
+        </span>
+        <span>
+          21 min read
+        </span>
+        
+          <a href="https://w-zx.github.io/tag/riSuBZE0r" class="post-tag">
+            # 杂谈
+          </a>
+        
+      </div>
+      
+        <a href="https://w-zx.github.io/post/the-sentinel" class="post-feature-image" style="background-image: url('https://i.loli.net/2019/12/25/NiSQtmlZ2avHrYR.jpg')">
+        </a>
+      
+      <div class="post-abstract">
+        <blockquote>
+<p>“每次看到银河时，我都会这样想。”在《哨兵》中，他借叙述者的口说道，“没错，那层层叠叠的星云中，我们期待的使者正在向这里赶来。原谅我使用这么俗套的比喻吧，我们点燃了烽火，接下来所能做的就只有等待了。我想，我们不会等的太久的。</p>
+</blockquote>
 
+      </div>
+    </article>
+  
+</div>
 
-            <div class="site-footer">
+    
+        <div class="pagination-container">
+  
+  
+</div>
+
+    
+        <div class="site-footer">
   Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
   <a class="rss" href="https://w-zx.github.io/atom.xml" target="_blank">RSS</a>
 </div>
 
 <script>
   hljs.initHighlightingOnLoad()
+
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");    
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
 </script>
 
+      </div>
     </div>
-    <script>
-        $('#sidebar').stickySidebar({
-            topSpacing: 80,
-            // bottomSpacing: 60
-        });
-    </script>
-</body>
-
+  </body>
 </html>

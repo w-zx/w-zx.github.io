@@ -1,0 +1,236 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Canvas绘制迷宫 | An Odyssey</title>
+<meta name="description" content="愛よりも昔、孤悲の物語。" />
+<link rel="shortcut icon" href="https://w-zx.github.io/favicon.ico?v=1577256050412">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://w-zx.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://w-zx.github.io">
+  <img class="avatar" src="https://w-zx.github.io/images/avatar.png?v=1577256050412" alt="">
+  </a>
+  <h1 class="site-title">
+    An Odyssey
+  </h1>
+  <p class="site-description">
+    愛よりも昔、孤悲の物語。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Canvas绘制迷宫
+            </h2>
+            <div class="post-info">
+              <span>
+                2017-01-04
+              </span>
+              <span>
+                5 min read
+              </span>
+              
+                <a href="https://w-zx.github.io/tag/hXS3FZtDB" class="post-tag">
+                  # JavaScript
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>在生成迷宫的诸多方法里，有一种思路是假设迷宫初始状态是由长×宽个独立单元格构成的，每个单元格的东西南北四个方向都有可以挖掉的墙。生成迷宫的过程就是从起点开始，不断挖掉两个单元格之间的墙壁，并随机选择前进方向直到遍历全部单元格，这样就能保证起点和另外任何一个单元格都有通路存在，迷宫也就生成好了。</p>
+<!-- more -->
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/12/25/KfwTxCFilesEvLU.jpg" alt=""></figure>
+<p>本文想介绍的是，在我们使用上述方法生成好描述迷宫的数据后，除了用字符在终端里输出外，还可以通过canvas方便且美观地在浏览器环境绘制迷宫。</p>
+<h2 id="processing">Processing</h2>
+<p>Processing是一种绘图语言，它在程序起始时运行一次初始化环境，然后不停循环draw()函数来描述动画每一帧要做什么。Processing设计思路和Arduino非常像，流程清晰可控而且易于上手。ProcessJS作为其衍生项目也继承了这种优点，你甚至可以直接在html里书写Java风格的代码，这提供了非常好的代码移植性，只要将代码放在<code>&lt;script type=&quot;text/processing&quot; data-processing-target=&quot;mycanvas&quot;&gt;&lt;/script&gt;</code>标签内即可。</p>
+<h2 id="数据格式">数据格式</h2>
+<p>我们绘图用的数据源是下面这种二维数组的形式：</p>
+<pre><code class="language-python">[[2,4,14,10],
+[5,10,3,3],
+[2,3,1,3],
+[5,13,12,9]]
+</code></pre>
+<p>这是一组回溯递归法产生的数据，首先定义每个单元格的东西南北4个方向为<code>N=1，S=2，W=4，E=8</code></p>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/12/25/RbqZozE5vFPBXr9.jpg" alt=""></figure>
+<p>这样定义的原因是便于标记每一步的行走方向，1、2、4、8转换成二进制恰好是<code>0001</code>，<code>0010</code>，<code>0100</code>，<code>1000</code>的<code>One Hot</code>编码格式。比如说初始状态每个单元格都被标记为<code>0000</code>，然后我们向南走一步，就是用代表东的<code>0010</code>与初始状态<code>0000</code>作位或运算<code>0000|0010=0010</code>，得到<code>0010</code>作为新的状态，然后我们再向东走一步，<code>0010|1000=1010</code>，最终得到<code>1010</code>，我们就知道这个单元格曾经有南和东两个方向的路径。</p>
+<h2 id="初始化绘图环境">初始化绘图环境</h2>
+<p>下面介绍绘图环境的初始化：</p>
+<pre><code class="language-java">void setup() {  
+    sideLength = 301;
+    size(sideLength, sideLength);
+    background(255);
+}
+</code></pre>
+<p>其中<code>size()</code>函数用来定义<code>canvas</code>画布大小，<code>background(255)</code>设置背景颜色为白色。由于迷宫是静止的，所以只需在在<code>click</code>事件里加一句回调<code>Processing.instances[0].maze(data);</code>运行一次自己定义的函数就好了。</p>
+<p>我首先用淡色描出了迷宫的网格，这能让迷宫看起来规整一些。每次运行都要重新设置背景来清空上一次的图形，用<code>val || default_val</code>设置边长的默认参数，然后计算每个网格的宽度<code>step</code>。用<code>stroke()</code>设置线条颜色，<code>width</code>是存储<code>canvas</code>画布宽度的全局变量，<code>line(x1, y1, x2, y2)</code>画出一条从<code>(x1, y1)</code>到<code>(x2, y2)</code>的直线。这里要注意像素坐标原点在<code>canvas</code>的左上角<code>(0, 0)</code>，所以只能画到<code>width-1</code>的位置。</p>
+<pre><code class="language-java">void maze(g) {  
+    background(255);
+    rows = $(&quot;#row&quot;).val() || 15;
+    cols = rows;
+    step = (width-1)/rows;
+    stroke(137, 194, 148, 50);
+    for(int i=0; i&lt;=width-1;) {
+        line(i, 0, i, width-1);
+        line(0, i, width-1, i);
+        i+=step;
+    }
+}
+</code></pre>
+<h2 id="绘制迷宫">绘制迷宫</h2>
+<p>然后就是根据数据绘制迷宫，因为正方形存在两对对称关系，当上方/左方的单元格开口方向确定后，相应的下方/右方单元格的开口就确定了，所以我们只需要处理每个单元格的<code>S</code>和<code>E</code>方向就行了，最后剩下迷宫的上边框和左边框没有处理，我们再画上两条长线。</p>
+<p>与生成迷宫的或运算相反，如果某一格与<code>0010</code>（南）或运算的结果为<code>0 (g[i][j] &amp; 2) == 0)</code>，这说明生成这一格时并没有向南走，也就是说这一格南面有一堵墙，我们就在这一格下方画一条线<code>line(step*j, step*(i+1), step*(j+1), step*(i+1));</code>。</p>
+<p>同理，如果<code>(g[i][j] &amp; 4) == 0)</code>，东面有墙时也是如此，当全部单元格都遍历到后，迷宫也就绘制完了。</p>
+<h2 id="效果">效果</h2>
+<p>全部代码如下：</p>
+<pre><code class="language-java">stroke(0);  
+line(0, 0, width, 0);
+line(0, 0, 0, width);
+for(int i=0; i&lt;=rows-1; i++) {
+    for(int j=0; j&lt;=rows-1; j++) {
+        if((g[i][j] &amp; 2) == 0) {
+            line(step*j, step*(i+1), step*(j+1), step*(i+1));
+        }
+        if((g[i][j] &amp; 4) == 0) {
+            line(step*(j+1), step*i, step*(j+1), step*(i+1));
+        }
+    }
+}
+</code></pre>
+<p>具体效果可以在这里查看：</p>
+<iframe width="100%" height="300" src="//jsfiddle.net/jfhy10zp/embedded/result,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#processing">Processing</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F">数据格式</a></li>
+<li><a href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E7%BB%98%E5%9B%BE%E7%8E%AF%E5%A2%83">初始化绘图环境</a></li>
+<li><a href="#%E7%BB%98%E5%88%B6%E8%BF%B7%E5%AE%AB">绘制迷宫</a></li>
+<li><a href="#%E6%95%88%E6%9E%9C">效果</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://w-zx.github.io/post/hello-dolly">
+              <h3 class="post-title">
+                WordPress 插件 Hello Dolly 前台版
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://w-zx.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");    
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
