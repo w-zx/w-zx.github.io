@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://w-zx.github.io/</id>
     <title>An Odyssey</title>
-    <updated>2021-01-16T15:40:59.151Z</updated>
+    <updated>2021-01-16T15:43:06.717Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://w-zx.github.io/"/>
     <link rel="self" href="https://w-zx.github.io/atom.xml"/>
@@ -85,8 +85,11 @@ for(int i=0; i&lt;=rows-1; i++) {
         <id>https://w-zx.github.io/post/yahoo-api/</id>
         <link href="https://w-zx.github.io/post/yahoo-api/">
         </link>
-        <updated>2016-07-10T16:24:21.000Z</updated>
+        <updated>2016-07-10T17:24:21.000Z</updated>
+        <summary type="html"><![CDATA[<p>在日语学习中比较困难的部分是记住日本汉字（Kanji）的发音，因为日本汉字不管训读还是音读都和现代汉语相应汉字的发音相差很多。而且日语中大量多音字、多音词组的存在使得对日本汉字的学习异常繁琐。</p>
+]]></summary>
         <content type="html"><![CDATA[<p>在日语学习中比较困难的部分是记住日本汉字（Kanji）的发音，因为日本汉字不管训读还是音读都和现代汉语相应汉字的发音相差很多。而且日语中大量多音字、多音词组的存在使得对日本汉字的学习异常繁琐。</p>
+<!-- more -->
 <p>我一般会将不会读的汉字复制到Google翻译里，因为目前可用的在线翻译引擎中只有Google会提供准确的经过分词的罗马音标注，但是目前Google Translation API已经关闭公开访问了。经过艰难的搜寻，我最后选择了Yahoo日本提供的翻译API作为替代方案。</p>
 <p>首先去Yahoo Developer Center注册一个账号，然后使用其提供的<u>ルビ振り</u>这个模块。先解释一下这个<u>ルビ振り</u>:</p>
 <blockquote>
