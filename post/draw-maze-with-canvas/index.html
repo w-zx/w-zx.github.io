@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Canvas绘制迷宫 | An Odyssey</title>
 <meta name="description" content="愛よりも昔、孤悲の物語。" />
-<link rel="shortcut icon" href="https://w-zx.github.io//favicon.ico?v=1577257499390">
+<link rel="shortcut icon" href="https://w-zx.github.io//favicon.ico?v=1610811538139">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://w-zx.github.io//styles/main.css">
@@ -20,7 +20,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://w-zx.github.io/">
-  <img class="avatar" src="https://w-zx.github.io//images/avatar.png?v=1577257499390" alt="">
+  <img class="avatar" src="https://w-zx.github.io//images/avatar.png?v=1610811538139" alt="">
   </a>
   <h1 class="site-title">
     An Odyssey
@@ -83,7 +83,7 @@
                 5 min read
               </span>
               
-                <a href="https://w-zx.github.io//tag/hXS3FZtDB" class="post-tag">
+                <a href="https://w-zx.github.io/tag/hXS3FZtDB/" class="post-tag">
                   # JavaScript
                 </a>
               
@@ -95,7 +95,7 @@
               <div class="post-content">
                 <p>在生成迷宫的诸多方法里，有一种思路是假设迷宫初始状态是由长×宽个独立单元格构成的，每个单元格的东西南北四个方向都有可以挖掉的墙。生成迷宫的过程就是从起点开始，不断挖掉两个单元格之间的墙壁，并随机选择前进方向直到遍历全部单元格，这样就能保证起点和另外任何一个单元格都有通路存在，迷宫也就生成好了。</p>
 <!-- more -->
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/12/25/KfwTxCFilesEvLU.jpg" alt=""></figure>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/12/25/KfwTxCFilesEvLU.jpg" alt="" loading="lazy"></figure>
 <p>本文想介绍的是，在我们使用上述方法生成好描述迷宫的数据后，除了用字符在终端里输出外，还可以通过canvas方便且美观地在浏览器环境绘制迷宫。</p>
 <h2 id="processing">Processing</h2>
 <p>Processing是一种绘图语言，它在程序起始时运行一次初始化环境，然后不停循环draw()函数来描述动画每一帧要做什么。Processing设计思路和Arduino非常像，流程清晰可控而且易于上手。ProcessJS作为其衍生项目也继承了这种优点，你甚至可以直接在html里书写Java风格的代码，这提供了非常好的代码移植性，只要将代码放在<code>&lt;script type=&quot;text/processing&quot; data-processing-target=&quot;mycanvas&quot;&gt;&lt;/script&gt;</code>标签内即可。</p>
@@ -107,7 +107,7 @@
 [5,13,12,9]]
 </code></pre>
 <p>这是一组回溯递归法产生的数据，首先定义每个单元格的东西南北4个方向为<code>N=1，S=2，W=4，E=8</code></p>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/12/25/RbqZozE5vFPBXr9.jpg" alt=""></figure>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/12/25/RbqZozE5vFPBXr9.jpg" alt="" loading="lazy"></figure>
 <p>这样定义的原因是便于标记每一步的行走方向，1、2、4、8转换成二进制恰好是<code>0001</code>，<code>0010</code>，<code>0100</code>，<code>1000</code>的<code>One Hot</code>编码格式。比如说初始状态每个单元格都被标记为<code>0000</code>，然后我们向南走一步，就是用代表东的<code>0010</code>与初始状态<code>0000</code>作位或运算<code>0000|0010=0010</code>，得到<code>0010</code>作为新的状态，然后我们再向东走一步，<code>0010|1000=1010</code>，最终得到<code>1010</code>，我们就知道这个单元格曾经有南和东两个方向的路径。</p>
 <h2 id="初始化绘图环境">初始化绘图环境</h2>
 <p>下面介绍绘图环境的初始化：</p>
@@ -176,9 +176,9 @@ for(int i=0; i&lt;=rows-1; i++) {
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://w-zx.github.io//post/hello-dolly">
+            <a href="https://w-zx.github.io/post/yahoo-api/">
               <h3 class="post-title">
-                WordPress 插件 Hello Dolly 前台版
+                Yahoo翻译API的使用
               </h3>
             </a>
           </div>

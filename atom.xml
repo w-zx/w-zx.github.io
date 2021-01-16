@@ -2,25 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://w-zx.github.io/</id>
     <title>An Odyssey</title>
-    <updated>2019-12-25T07:05:22.452Z</updated>
+    <updated>2021-01-16T15:39:04.135Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://w-zx.github.io/"/>
-    <link rel="self" href="https://w-zx.github.io//atom.xml"/>
+    <link rel="self" href="https://w-zx.github.io/atom.xml"/>
     <subtitle>愛よりも昔、孤悲の物語。</subtitle>
-    <logo>https://w-zx.github.io//images/avatar.png</logo>
-    <icon>https://w-zx.github.io//favicon.ico</icon>
-    <rights>All rights reserved 2019, An Odyssey</rights>
+    <logo>https://w-zx.github.io/images/avatar.png</logo>
+    <icon>https://w-zx.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2021, An Odyssey</rights>
     <entry>
         <title type="html"><![CDATA[Canvas绘制迷宫]]></title>
-        <id>https://w-zx.github.io//post/draw-maze-with-canvas</id>
-        <link href="https://w-zx.github.io//post/draw-maze-with-canvas">
+        <id>https://w-zx.github.io/post/draw-maze-with-canvas/</id>
+        <link href="https://w-zx.github.io/post/draw-maze-with-canvas/">
         </link>
         <updated>2017-01-04T17:18:23.000Z</updated>
         <summary type="html"><![CDATA[<p>在生成迷宫的诸多方法里，有一种思路是假设迷宫初始状态是由长×宽个独立单元格构成的，每个单元格的东西南北四个方向都有可以挖掉的墙。生成迷宫的过程就是从起点开始，不断挖掉两个单元格之间的墙壁，并随机选择前进方向直到遍历全部单元格，这样就能保证起点和另外任何一个单元格都有通路存在，迷宫也就生成好了。</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>在生成迷宫的诸多方法里，有一种思路是假设迷宫初始状态是由长×宽个独立单元格构成的，每个单元格的东西南北四个方向都有可以挖掉的墙。生成迷宫的过程就是从起点开始，不断挖掉两个单元格之间的墙壁，并随机选择前进方向直到遍历全部单元格，这样就能保证起点和另外任何一个单元格都有通路存在，迷宫也就生成好了。</p>
 <!-- more -->
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/12/25/KfwTxCFilesEvLU.jpg" alt=""></figure>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/12/25/KfwTxCFilesEvLU.jpg" alt="" loading="lazy"></figure>
 <p>本文想介绍的是，在我们使用上述方法生成好描述迷宫的数据后，除了用字符在终端里输出外，还可以通过canvas方便且美观地在浏览器环境绘制迷宫。</p>
 <h2 id="processing">Processing</h2>
 <p>Processing是一种绘图语言，它在程序起始时运行一次初始化环境，然后不停循环draw()函数来描述动画每一帧要做什么。Processing设计思路和Arduino非常像，流程清晰可控而且易于上手。ProcessJS作为其衍生项目也继承了这种优点，你甚至可以直接在html里书写Java风格的代码，这提供了非常好的代码移植性，只要将代码放在<code>&lt;script type=&quot;text/processing&quot; data-processing-target=&quot;mycanvas&quot;&gt;&lt;/script&gt;</code>标签内即可。</p>
@@ -32,7 +32,7 @@
 [5,13,12,9]]
 </code></pre>
 <p>这是一组回溯递归法产生的数据，首先定义每个单元格的东西南北4个方向为<code>N=1，S=2，W=4，E=8</code></p>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/12/25/RbqZozE5vFPBXr9.jpg" alt=""></figure>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/12/25/RbqZozE5vFPBXr9.jpg" alt="" loading="lazy"></figure>
 <p>这样定义的原因是便于标记每一步的行走方向，1、2、4、8转换成二进制恰好是<code>0001</code>，<code>0010</code>，<code>0100</code>，<code>1000</code>的<code>One Hot</code>编码格式。比如说初始状态每个单元格都被标记为<code>0000</code>，然后我们向南走一步，就是用代表东的<code>0010</code>与初始状态<code>0000</code>作位或运算<code>0000|0010=0010</code>，得到<code>0010</code>作为新的状态，然后我们再向东走一步，<code>0010|1000=1010</code>，最终得到<code>1010</code>，我们就知道这个单元格曾经有南和东两个方向的路径。</p>
 <h2 id="初始化绘图环境">初始化绘图环境</h2>
 <p>下面介绍绘图环境的初始化：</p>
@@ -81,9 +81,96 @@ for(int i=0; i&lt;=rows-1; i++) {
 <iframe width="100%" height="300" src="//jsfiddle.net/jfhy10zp/embedded/result,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Yahoo翻译API的使用]]></title>
+        <id>https://w-zx.github.io/post/yahoo-api/</id>
+        <link href="https://w-zx.github.io/post/yahoo-api/">
+        </link>
+        <updated>2016-07-10T16:24:21.000Z</updated>
+        <content type="html"><![CDATA[<p>在日语学习中比较困难的部分是记住日本汉字（Kanji）的发音，因为日本汉字不管训读还是音读都和现代汉语相应汉字的发音相差很多。而且日语中大量多音字、多音词组的存在使得对日本汉字的学习异常繁琐。</p>
+<p>我一般会将不会读的汉字复制到Google翻译里，因为目前可用的在线翻译引擎中只有Google会提供准确的经过分词的罗马音标注，但是目前Google Translation API已经关闭公开访问了。经过艰难的搜寻，我最后选择了Yahoo日本提供的翻译API作为替代方案。</p>
+<p>首先去Yahoo Developer Center注册一个账号，然后使用其提供的<u>ルビ振り</u>这个模块。先解释一下这个<u>ルビ振り</u>:</p>
+<blockquote>
+<p>give [print] kana alongside kanji [Chinese characters] (to show the letters' readings)，</p>
+</blockquote>
+<p>这个词读作<ruby><rb>ルビ<rt>rubi</ruby> <ruby><rb>振り<rt>furi</ruby>，有个html元素就叫<code>&lt;ruby&gt;</code>，它提供了一个文字注音的环境，其中<code>&lt;rb&gt;</code>是文字<code>&lt;rt&gt;</code>是其注音，在这个项目中，<code>&lt;ruby&gt;</code>元素起到了非常关键的作用。</p>
+<p>账号注册成功得到一个ID，再回到ルビ振り这个页面，使用方法是<code>http://jlp.yahooapis.jp/FuriganaService/V1/furigana?appid=&lt;あなたのアプリケーションID&gt;&amp;sentence=出会え</code>这里只需要填写<code>appid</code>和<code>sentence</code>两个选项，那个<code>grade</code>（相应年级的注音完整度）会导致汉字的注音显示不全，所以就不设置了。</p>
+<p>网络请求返回一堆xml数据：</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;  
+&lt;ResultSet xmlns=&quot;urn:yahoo:jp:jlp:FuriganaService&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;urn:yahoo:jp:jlp:FuriganaService http://jlp.yahooapis.jp/FuriganaService/V1/furigana.xsd&quot;&gt;  
+  &lt;Result&gt;
+    &lt;WordList&gt;
+      &lt;Word&gt;
+        &lt;Surface&gt;出会え&lt;/Surface&gt;
+        &lt;Furigana&gt;であえ&lt;/Furigana&gt;
+        &lt;Roman&gt;deae&lt;/Roman&gt;
+        &lt;SubWordList&gt;
+          &lt;SubWord&gt;
+            &lt;Surface&gt;出会&lt;/Surface&gt;
+            &lt;Furigana&gt;であ&lt;/Furigana&gt;
+            &lt;Roman&gt;dea&lt;/Roman&gt;
+          &lt;/SubWord&gt;
+          &lt;SubWord&gt;
+            &lt;Surface&gt;え&lt;/Surface&gt;
+            &lt;Furigana&gt;え&lt;/Furigana&gt;
+            &lt;Roman&gt;e&lt;/Roman&gt;
+          &lt;/SubWord&gt;
+        &lt;/SubWordList&gt;
+      &lt;/Word&gt;
+    &lt;/WordList&gt;
+  &lt;/Result&gt;
+&lt;/ResultSet&gt;  
+</code></pre>
+<p>首先，输入的语句被分词了，分出来的词语存放在<code>&lt;Word&gt;</code>里，<code>&lt;Surface&gt;</code>是原文，<code>&lt;Furigana&gt;</code>是假名标注，<code>&lt;Roman&gt;</code>是罗马音标注，值得注意的是，有的词语还会出现<code>&lt;SubWord&gt;</code>，这应该和日语语法有关，我还没弄懂，但是我不需要这个<code>&lt;SubWord&gt;</code>，所以首先要去除它。</p>
+<p>关于跨域问题，可以使用jsonp方法，但是Yahoo日本没有给出json格式的返回值，导致js在分析返回的xml数据时会报错，所以jsonp就没办法用了。后来我查到可以使用Yahoo的YQL（此服务已停用，故下文方法失效，但思路类似）服务进行跨域的xml处理：</p>
+<pre><code class="language-javascript">var sentence = $(&quot;#input&quot;).val();  
+var url = 'http://jlp.yahooapis.jp/FuriganaService/V1/furigana?&amp;appid='+sentence;  
+var yql = 'https://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from xml where url=&quot;' + url + '&quot;') + '&amp;format=xml';
+
+$.ajax({
+    url: yql,
+    dataType: 'xml',
+    success: function(data) {
+    },
+})
+</code></pre>
+<p>注意这里<code>dataType</code>一定要选<code>xml</code>。随后在<code>callback</code>里我要做下列几件事：</p>
+<p>首先，去掉所有的<code>&lt;SubWord&gt;</code>，这里使用<code>remove()</code>方法就可以了：</p>
+<pre><code class="language-javascript">var deleteSubword = $(data).find('SubWordList').each(function() {  
+    $(this).remove();
+});
+</code></pre>
+<p>其次，对于输入的标点符号，由于他们没有对应的<code>&lt;Roman&gt;</code>tag，所以注音部分要写入空白元素，如果找到<code>&lt;Roman&gt;</code>，就<code>document.createTextNode(romaji)</code>，并用<code>var rt = $(&quot;&lt;rt/&gt;&quot;);</code>生成一个node，把词组的romaji放进去，同理处理kanji，最后each遍历结束后：</p>
+<pre><code class="language-javascript">.promise().done(function() {
+    $(&quot;#output&quot;).html(ruby);
+});
+</code></pre>
+<p>来更新输出内容。</p>
+<p>项目全体代码如下：</p>
+<pre><code class="language-javascript">var romaji = $(data).find('Word').each(function() {  
+var romajinode = document.createTextNode(&quot;&quot;);  
+if ($(this).find('Roman')) {  
+    var romaji = $(this).find('Roman').text();
+    romajinode = document.createTextNode(romaji);
+}
+    var kanji = $(this).find('Surface').text();
+    var kanjinode = document.createTextNode(kanji);
+    var rb = $(&quot;&lt;rb/&gt;&quot;);
+    rb.append(kanjinode);
+    ruby.append(rb);
+    var rt = $(&quot;&lt;rt/&gt;&quot;);
+    rt.append(romajinode);
+    ruby.append(rt);
+}).promise().done(function() {
+    $(&quot;#output&quot;).html(ruby);
+});
+</code></pre>
+<p>这个API存在的问题是，Yahoo日本作为一个日企对日语的解析居然不如Google，比如<code>私は</code>和<code>はい</code>中的<code>は</code>全部被标成了<code>ha</code>，另外技术上的问题就是返回数据类型是<code>xml</code>而不是<code>json</code>，处理使用起来不是那么方便。</p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[WordPress 插件 Hello Dolly 前台版]]></title>
-        <id>https://w-zx.github.io//post/hello-dolly</id>
-        <link href="https://w-zx.github.io//post/hello-dolly">
+        <id>https://w-zx.github.io/post/hello-dolly/</id>
+        <link href="https://w-zx.github.io/post/hello-dolly/">
         </link>
         <updated>2014-12-09T10:10:59.000Z</updated>
         <summary type="html"><![CDATA[<p>WordPress 自带的 Hello Dolly 插件是 WordPress 的第一个插件，它的介绍是这样的：</p>
@@ -113,8 +200,8 @@ add_action( 'wp_head', 'dolly_css' );
     </entry>
     <entry>
         <title type="html"><![CDATA[奥本海默]]></title>
-        <id>https://w-zx.github.io//post/oppenheimer</id>
-        <link href="https://w-zx.github.io//post/oppenheimer">
+        <id>https://w-zx.github.io/post/oppenheimer/</id>
+        <link href="https://w-zx.github.io/post/oppenheimer/">
         </link>
         <updated>2014-01-24T11:29:16.000Z</updated>
         <summary type="html"><![CDATA[<blockquote>
@@ -151,8 +238,8 @@ Takes on his multi-armed form and says,<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[哨兵]]></title>
-        <id>https://w-zx.github.io//post/the-sentinel</id>
-        <link href="https://w-zx.github.io//post/the-sentinel">
+        <id>https://w-zx.github.io/post/the-sentinel/</id>
+        <link href="https://w-zx.github.io/post/the-sentinel/">
         </link>
         <updated>2014-01-24T10:07:16.000Z</updated>
         <summary type="html"><![CDATA[<blockquote>

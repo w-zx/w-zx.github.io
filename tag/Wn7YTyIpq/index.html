@@ -1,8 +1,8 @@
 <html>
   <head>
-    <meta charset="utf-8" />
+  <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>WordPress 插件 Hello Dolly 前台版 | An Odyssey</title>
+<title>日语 | An Odyssey</title>
 <meta name="description" content="愛よりも昔、孤悲の物語。" />
 <link rel="shortcut icon" href="https://w-zx.github.io//favicon.ico?v=1610811538139">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -70,62 +70,46 @@
   </div>
 </div>
 
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              WordPress 插件 Hello Dolly 前台版
-            </h2>
-            <div class="post-info">
-              <span>
-                2014-12-09
-              </span>
-              <span>
-                1 min read
-              </span>
-              
-            </div>
-            
-            <div class="post-content-wrapper">
-              <div class="post-content">
-                <p>WordPress 自带的 Hello Dolly 插件是 WordPress 的第一个插件，它的介绍是这样的：</p>
-<blockquote>
-<p>This is not just a plugin, it symbolizes the hope and enthusiasm of an entire generation summed up in two words sung most famously by Louis Armstrong.</p>
-</blockquote>
-<!-- more -->
-<p>它的作用就是在后台界面的右上角随机显示一句音乐剧《俏红娘》的歌词，每次刷新页面后都会出现不同的歌词。大部分人可能会觉得这个插件没什么用，但我看到后一直有个想法，想把这个功能做到前台去，让每个浏览博客的人都能在右上角看到随机的一句我希望分享的文字，这看起来非常简洁也非常有趣。</p>
-<p>要实现这个功能，需要修改插件的php文件：</p>
-<pre><code class="language-php">// 将
-add_action( 'admin_notices', 'hello_dolly' );
-// 改为
-add_action( 'wp_head', 'hello_dolly' );
-
-// 将
-add_action( 'admin_head', 'dolly_css' );
-// 改为
-add_action( 'wp_head', 'dolly_css' );
-</code></pre>
-<p>代码中的<code>$lyrics</code>变量用来保存文字，每行一句，自己可以随意添加。</p>
-
-              </div>
-              <div class="toc-container">
-                
-              </div>
-            </div>
-          </article>
+        <div class="current-tag-container">
+            <h2 class="title">
+                标签：# 日语
+            </h2> 
         </div>
+        <div class="post-container">
+  
+    <article class="post">
+      <a href="https://w-zx.github.io/post/yahoo-api/">
+        <h2 class="post-title">Yahoo翻译API的使用</h2>
+      </a>
+      <div class="post-info">
+        <span>
+          2016-07-11
+        </span>
+        <span>
+          5 min read
+        </span>
+        
+          <a href="https://w-zx.github.io/tag/Wn7YTyIpq/" class="post-tag">
+            # 日语
+          </a>
+        
+          <a href="https://w-zx.github.io/tag/hXS3FZtDB/" class="post-tag">
+            # JavaScript
+          </a>
+        
+      </div>
+      
+      <div class="post-abstract">
+        
+      </div>
+    </article>
+  
+</div>
 
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://w-zx.github.io/post/oppenheimer/">
-              <h3 class="post-title">
-                奥本海默
-              </h3>
-            </a>
-          </div>
-        
-
-        
+        <div class="pagination-container">
+  
+  
+</div>
 
         <div class="site-footer">
   Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
